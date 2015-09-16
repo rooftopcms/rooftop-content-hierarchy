@@ -1,0 +1,20 @@
+{
+    "name": "rooftopcms/rooftop-content-hierarchy",
+    "description": "Include the content hierarchy for a given post in its JSON response",
+    "license": "GPL-3.0",
+    "authors": [
+        {
+            "name": "Rooftop CMS",
+            "email": "hello@rooftopcms.com"
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "http://wpackagist.org"
+        }
+    ],
+    "type": "wordpress-muplugin",
+    "require": {
+    }
+}
