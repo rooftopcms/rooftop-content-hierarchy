@@ -27,7 +27,7 @@ function add_content_hierarchy($response, $post, $request) {
     $ancestor_posts   = array_map(function($id){
         return get_post($id);
     }, get_post_ancestors($post));
-    $descendant_posts = get_children($post->ID);
+    $child_posts = get_children($post->ID);
 
     $post_data = function($p) {
         $post_data = array();
@@ -38,8 +38,13 @@ function add_content_hierarchy($response, $post, $request) {
         return $post_data;
     };
 
-    $response->data['ancestors']   = array_map($post_data, $ancestor_posts);
-    $response->data['descendants'] = array_map($post_data, $descendant_posts);
+    foreach($child_posts as $post) {
+        $response->add_link('children', "", $post_data($post));
+    };
+
+    foreach($ancestor_posts as $post) {
+        $response->add_link('ancestors', "", $post_data($post));
+    };
 
     return $response;
 }
