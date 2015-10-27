@@ -39,16 +39,16 @@ function add_content_hierarchy($response, $post, $request) {
     };
 
     $rest_base = get_post_type_object($post->post_type)->rest_base;
-    $rest_url = get_rest_url().'wp/v2/'.$rest_base;
+    $rest_url = '/wp/v2/'.$rest_base;
 
 
 
     foreach($ancestor_posts as $post) {
-        $response->add_link('ancestors', $rest_url.'/'.$post->ID, $post_data($post));
+        $response->add_link('ancestors', rest_url($rest_url.'/'.$post->ID), $post_data($post));
     };
 
     foreach($child_posts as $post) {
-        $response->add_link('children', $rest_url.'/'.$post->ID, $post_data($post));
+        $response->add_link('children', rest_url($rest_url.'/'.$post->ID), $post_data($post));
     };
 
     return $response;
