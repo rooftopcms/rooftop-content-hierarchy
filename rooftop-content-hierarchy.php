@@ -27,19 +27,29 @@ function add_content_hierarchy($response, $post, $request) {
     $ancestor_posts   = array_map(function($id){
         return get_post($id);
     }, get_post_ancestors($post));
-    $descendant_posts = get_children($post->ID);
+    $child_posts = get_children($post->ID);
 
     $post_data = function($p) {
         $post_data = array();
-        $post_data['ID'] = $p->ID;
+        $post_data['id'] = $p->ID;
         $post_data['title'] = $p->post_title;
         $post_data['type'] = $p->post_type;
         $post_data['slug'] = $p->post_name;
         return $post_data;
     };
 
-    $response->data['ancestors']   = array_map($post_data, $ancestor_posts);
-    $response->data['descendants'] = array_map($post_data, $descendant_posts);
+    $rest_base = get_post_type_object($post->post_type)->rest_base;
+    $rest_url = get_rest_url().'wp/v2/'.$rest_base;
+
+
+
+    foreach($ancestor_posts as $post) {
+        $response->add_link('ancestors', $rest_url.'/'.$post->ID, $post_data($post));
+    };
+
+    foreach($child_posts as $post) {
+        $response->add_link('children', $rest_url.'/'.$post->ID, $post_data($post));
+    };
 
     return $response;
 }
