@@ -44,11 +44,13 @@ function add_content_hierarchy($response, $post, $request) {
 
 
     foreach($ancestor_posts as $post) {
-        $response->add_link('ancestors', rest_url($rest_url.'/'.$post->ID), $post_data($post));
+        $response->add_link('http://docs.rooftopcms.com/link_relations/ancestors', rest_url($rest_url.'/'.$post->ID),
+            $post_data($post));
     };
 
     foreach($child_posts as $post) {
-        $response->add_link('children', rest_url($rest_url.'/'.$post->ID), $post_data($post));
+        $response->add_link('http://docs.rooftopcms.com/link_relations/children', rest_url($rest_url.'/'.$post->ID),
+            $post_data($post));
     };
 
     return $response;
