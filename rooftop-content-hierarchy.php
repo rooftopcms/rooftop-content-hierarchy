@@ -23,7 +23,7 @@
  * Domain Path:       /languages
  */
 
-function add_content_hierarchy($response, $post, $request) {
+function rooftop_add_content_hierarchy($response, $post, $request) {
     $ancestor_posts   = array_map(function($id){
         return get_post($id);
     }, get_post_ancestors($post));
@@ -56,7 +56,7 @@ function add_content_hierarchy($response, $post, $request) {
     return $response;
 }
 
-add_filter('rest_prepare_page', 'add_content_hierarchy', 10, 3);
+add_filter('rest_prepare_page', 'rooftop_add_content_hierarchy', 10, 3);
 ?>
 
 
