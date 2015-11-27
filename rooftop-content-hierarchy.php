@@ -35,13 +35,13 @@ function rooftop_add_content_hierarchy($response, $post, $request) {
         $post_data['title'] = $p->post_title;
         $post_data['type'] = $p->post_type;
         $post_data['slug'] = $p->post_name;
+        $post_data['embeddable'] = true;
+
         return $post_data;
     };
 
     $rest_base = get_post_type_object($post->post_type)->rest_base;
     $rest_url = '/wp/v2/'.$rest_base;
-
-
 
     foreach($ancestor_posts as $post) {
         $response->add_link('http://docs.rooftopcms.com/link_relations/ancestors', rest_url($rest_url.'/'.$post->ID),
