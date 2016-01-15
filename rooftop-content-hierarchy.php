@@ -24,12 +24,23 @@
  */
 
 function rooftop_add_content_hierarchy($response, $post, $request) {
+
+    $child_post_args = array(
+        'post_parent' => $post->ID,
+        'post_type'   => $post->post_type,
+        'numberposts' => -1,
+        'post_status' => array('publish')
+    );
+    if( ROOFTOP_PREVIEW_MODE ) {
+        $child_post_args['post_status'][] = 'draft';
+    }
+
     $ancestor_posts   = array_map(function($id){
         return get_post($id);
     }, get_post_ancestors($post));
-    $child_posts = get_children($post->ID);
+    $child_posts = get_children($child_post_args);
 
-    $post_data = function($p) {
+    $post_data = function($p)       {
         $post_data = array();
         $post_data['id'] = $p->ID;
         $post_data['title'] = $p->post_title;
