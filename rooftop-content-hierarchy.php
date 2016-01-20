@@ -69,5 +69,3 @@ function rooftop_add_content_hierarchy($response, $post, $request) {
 
 add_filter('rest_prepare_page', 'rooftop_add_content_hierarchy', 10, 3);
 ?>
-
-
