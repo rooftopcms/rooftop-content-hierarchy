@@ -51,18 +51,19 @@ function rooftop_add_content_hierarchy($response, $post, $request) {
         return $post_data;
     };
 
-    $rest_base = get_post_type_object($post->post_type)->rest_base;
-    $rest_url = '/wp/v2/'.$rest_base;
+    $post_object = get_post_type_object($post->post_type);
+    if( $post_object && property_exists( $post_object, 'rest_base' ) ) {
+        $rest_base = $post_object->rest_base;
+        $rest_url = '/wp/v2/'.$rest_base;
 
-    foreach($ancestor_posts as $post) {
-        $response->add_link('http://docs.rooftopcms.com/link_relations/ancestors', rest_url($rest_url.'/'.$post->ID),
-            $post_data($post));
-    };
+        foreach( $ancestor_posts as $post ) {
+            $response->add_link( 'http://docs.rooftopcms.com/link_relations/ancestors', rest_url( $rest_url.'/'.$post->ID ), $post_data( $post ) );
+        };
 
-    foreach($child_posts as $post) {
-        $response->add_link('http://docs.rooftopcms.com/link_relations/children', rest_url($rest_url.'/'.$post->ID),
-            $post_data($post));
-    };
+        foreach( $child_posts as $post ) {
+            $response->add_link( 'http://docs.rooftopcms.com/link_relations/children', rest_url( $rest_url.'/'.$post->ID ), $post_data( $post ) );
+        };
+    }
 
     return $response;
 }
