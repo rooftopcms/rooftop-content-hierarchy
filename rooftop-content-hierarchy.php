@@ -31,7 +31,7 @@ function rooftop_add_content_hierarchy($response, $post, $request) {
         'numberposts' => -1,
         'post_status' => array('publish')
     );
-    if( ROOFTOP_PREVIEW_MODE ) {
+    if( ROOFTOP_INCLUDE_DRAFTS ) {
         $child_post_args['post_status'][] = 'draft';
     }
 
