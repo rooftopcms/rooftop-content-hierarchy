@@ -29,7 +29,9 @@ function rooftop_add_content_hierarchy($response, $post, $request) {
         'post_parent' => $post->ID,
         'post_type'   => $post->post_type,
         'numberposts' => -1,
-        'post_status' => array('publish')
+        'post_status' => array('publish'),
+        'orderby' => 'menu_order',
+        'order' => 'ASC'
     );
     if( ROOFTOP_PREVIEW_MODE ) {
         $child_post_args['post_status'][] = 'draft';
