@@ -33,7 +33,8 @@ function rooftop_add_content_hierarchy($response, $post, $request) {
         'orderby' => 'menu_order',
         'order' => 'ASC'
     );
-    if( ROOFTOP_INCLUDE_DRAFTS ) {
+
+    if( apply_filters( 'rooftop_include_drafts', false ) ) {
         $child_post_args['post_status'][] = 'draft';
     }
 
