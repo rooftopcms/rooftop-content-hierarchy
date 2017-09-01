@@ -13,11 +13,11 @@
  * @wordpress-plugin
  * Plugin Name:       Rooftop Content Hierarchy
  * Plugin URI:        http://errorstudio.co.uk
- * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
- * Version:           1.0.0
- * Author:            Error
- * Author URI:        http://errorstudio.co.uk
- * License:           GPL-2.0+
+ * Description:       rooftop-content-hierarchy parent/child id's to hierarchical content types.
+ * Version:           1.2.1
+ * Author:            RooftopCMS
+ * Author URI:        http://github.com/rooftopcms
+ * License:           GPL-3.0+
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       rooftop-content-hierarchy
  * Domain Path:       /languages

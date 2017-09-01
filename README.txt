@@ -1,17 +1,19 @@
-=== Plugin Name ===
+=== Rooftop Content Hierarchy ===
 Contributors: rooftopcms
 Tags: rooftop, api, headless, content
 Requires at least: 4.3
-Tested up to: 4.3
+Tested up to: 4.8.1
 Stable tag: 4.3
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 
-rooftop-content-hierarchy adds default content to Rooftop CMS
+rooftop-content-hierarchy parent/child id's to hierarchical content types
 
 == Description ==
 
 rooftop-content-hierarchy includes the parent and child content ID's of a given post.
+This allows compatible clients to easily fetch related content, even if its endpoint doesn't
+specify the relationships in its _links resource
 
 Track progress, raise issues and contribute at http://github.com/rooftopcms/rooftop-content-hierarchy
 
@@ -32,6 +34,12 @@ Otherwise you can install manually:
 Yes, it's a Wordpress plugin you're welcome to use outside the context of Rooftop CMS. We haven't tested it, though.
 
 == Changelog ==
+
+= 1.2.1 =
+* Update readme for packaging
+
+= 1.2.0 =
+* Fix ordering issue
 
 = 0.0.1 =
 * Initial release
