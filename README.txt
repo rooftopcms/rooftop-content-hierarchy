@@ -1,7 +1,7 @@
 === Rooftop Content Hierarchy ===
 Contributors: rooftopcms
 Tags: rooftop, api, headless, content
-Requires at least: 4.3
+Requires at least: 4.7
 Tested up to: 4.8.1
 Stable tag: 4.3
 License: GPLv3
